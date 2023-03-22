@@ -4,10 +4,8 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
-const bodyParser = require('body-parser');
 const DBURL = process.env.MONGODB;
 const mongoose = require('mongoose');
-
 
 // MONGO DB Connection
 let db = mongoose.connection;
@@ -21,24 +19,25 @@ mongoose.connect(DBURL, {
   useNewUrlParser: true
 })
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/api/register", require("./routes/api/register"));
 
-// REACT Connect
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.urlencoded({ extended: true })); // req.body 전송 시 필수 !!
+app.use(express.json()); // req.body 전송 시 필수 !!
+
+app.use("/api", require("./routes/api.js"));
 
 // Via ROOT directory
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.get("/",(req,res)=>{
   res.sendFile(path.join(__dirname, '/client/build/index.html'))
 })
 
-// API REQUESTS FROM CLIENT
-// app.get("/api",(req,res)=>{
-//   res.send({id:'song',userName:'songaji'});
-// })
-// app.get("/api/register",(req,res)=>{
-//   res.send({id:'kang',userName:'kangi'});
+// app.get("/logintest",(req,res)=>{
+//   User.findOne({userID:"sunghyhun", userPWD:"$2b$10$wrxs1rgZmsSslaANqzkUlOL1c5XMvllVXcqZsLoCHQYz53BGVKMVS"
+// },(err, user)=>{
+//     if(err) return res.status(500).json({message:"error"});
+//     else if(user) return res.status(200).json({message:'user found', data:user});
+//     else return res.status(404).json({message:'user not found'});
+//   })
 // })
 
 

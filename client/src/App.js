@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-
+import Signup from './components/Signup';
+import Login from './components/Login';
 function App() {
-// useEffect(()=>{
-//   axios.get('/api/')
-//   .then((res)=>{
-//     console.log(res.data);
-//   })
-//   .catch((err)=>{
-//     console.log("error: "+err);
-//   })
-// })
+  const [login, setLogin] = useState(false);
 
   return (
     <div className="App">
-      <p>Hello</p>
+      <h1>Your live-chat-app</h1>
+      <h2>Sign up</h2>
+      <Signup />
+      <Login />
     </div>
   );
 }
+
+// LOGIN::https://ddeck.tistory.com/33 
 
 export default App;
