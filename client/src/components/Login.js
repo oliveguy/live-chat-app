@@ -20,8 +20,13 @@ function Login(){
   }
   const loginHandler =(e)=>{
     e.preventDefault();
-    axios.post('/api/login',{inputID, inputPWD, dateTime})
-    .then(res=> console.log(res.data))
+    axios.post('/api/login',
+    {inputID, inputPWD, dateTime})
+    .then((res)=> {
+      sessionStorage.setItem('user_id', res.data.data.userID);
+      sessionStorage.setItem('user_name', res.data.data.userName);
+      document.location.href = '/';
+    })
     .catch();
   }
 
@@ -29,8 +34,8 @@ function Login(){
     <>
     <h2>Login</h2>
     <form action="" onSubmit={loginHandler}>
-      <input type="text" name="userID" value={inputID} onChange={IDHandler} placeholder='userID' />
-      <input type="password" name="userPWD" value={inputPWD} onChange={PWDHandler}placeholder='password' />
+      <input type="text" name="userID" value={inputID} onChange={IDHandler} placeholder='userID' required/>
+      <input type="password" name="userPWD" value={inputPWD} onChange={PWDHandler}placeholder='password' required/>
       <input type="submit" value="LOGIN" />
     </form>
     </>

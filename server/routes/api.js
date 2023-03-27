@@ -4,9 +4,8 @@ const User = require("../models/User");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const mongoose = require('mongoose');
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
+app.use(express.json());
 
 router.post(
   "/register",
@@ -29,10 +28,6 @@ router.post(
         loginInfo
       });
       
-      // PWD Encripted
-      // const salt = await bcrypt.genSalt(10);
-      // user.userPWD = await bcrypt.hash(userPWD, salt);
-
       user.userPWD = await bcrypt.hashSync(userPWD, 10);
       await user.save(); // save user in DB
 
@@ -54,20 +49,15 @@ router.post("/login", async(req,res)=>{
     return res.status(401).json({message:'user not found'});
   }
   let compare = bcrypt.compareSync(inputPWD, user.userPWD)
-  if(compare){ // ID and PWD Ok
-    return res.status(200).json({message:'found and pwd correct', data:user});
+  if(compare){ // Both ID and PWD Ok ----------------
+    res.status(200).json({message:'found and pwd correct', data:user});
   }
   if(user && compare == false){ // ID okay but PWD incorrect
     return res.status(401).json({message:'Your password is incorrect'});
   }
-
 })
-// let user = User.findOne({ userID:inputID });
-// User.findOne({userID:inputID, userPWD:hash},(err, user)=>{
-//   if(err) return res.status(500).json({message:"error"});
-//   else if(user) return res.status(200).json({message:'user found', data:user});
-//   else return res.status(404).json({message:'user not found'});
-// })
+// bcrypt hash coparison
+// https://velog.io/@yogjin/nodeJS-bcrypt-hashed-password%EC%99%80-plain-password-%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B9%84%EA%B5%90%ED%95%A0%EA%B9%8C
 
 
 module.exports = router;
