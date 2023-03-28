@@ -42,18 +42,21 @@ router.post(
 router.post("/login", async(req,res)=>{
   let inputID = req.body.inputID;
   let inputPWD = req.body.inputPWD;
+  let updateLogin = req.body.dateTime;
   const user = await User.findOne({userID:inputID});
   // encryted pwd comparision
   
   if(!user){ // No User ID
-    return res.status(401).json({message:'user not found'});
+    return res.status(401).json({message:'user not found',data:'noID'});
   }
   let compare = bcrypt.compareSync(inputPWD, user.userPWD)
   if(compare){ // Both ID and PWD Ok ----------------
     res.status(200).json({message:'found and pwd correct', data:user});
+    user.loginInfo = updateLogin;
+    await user.save();
   }
   if(user && compare == false){ // ID okay but PWD incorrect
-    return res.status(401).json({message:'Your password is incorrect'});
+    return res.status(401).json({message:'Your password is incorrect',data:'nopassword'});
   }
 })
 // bcrypt hash coparison

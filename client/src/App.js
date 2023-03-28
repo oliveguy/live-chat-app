@@ -1,26 +1,31 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Routes, Route, Link,useNavigate, Outlet } from 'react-router-dom'
-import axios from 'axios';
-import io from 'socket.io-client';
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Chat from './components/Chat';
 import Home from './components/Home';
+import Main from './components/Main';
+import Profile from './components/Profile';
+import Setting from './components/Setting';
+
 function App() {
   const [login, setLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
   let navigate = useNavigate()
-
+// User Information Saved in userInfo from SESSION
   useEffect(()=>{
     if(sessionStorage.getItem('user_id')){
       setLogin(true);
       setUserInfo([
         sessionStorage.getItem('user_id'),
-        sessionStorage.getItem('user_name')
+        sessionStorage.getItem('user_name'),
+        sessionStorage.getItem('user_email'),
+        sessionStorage.getItem('user_lastLogin')
       ])
     }
   },[])
+
   return (
     <div className="App">
       <header>
@@ -38,6 +43,11 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>
+        <Route path="/main" element={<Main />} >
+          <Route path="profile" element={<Profile userInfo={userInfo}/>} />
+          <Route path="chat" element={<Chat />} />
+          <Route path="setting" element={<Setting />} />
+        </Route>
       </Routes>
 
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { Routes, Route, Link ,useNavigate, Outlet} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Login(){
   let navigate = useNavigate()
@@ -26,9 +26,19 @@ function Login(){
     .then((res)=> {
       sessionStorage.setItem('user_id', res.data.data.userID);
       sessionStorage.setItem('user_name', res.data.data.userName);
-      document.location.href = '/';
+      sessionStorage.setItem('user_email', res.data.data.userEmail);
+      sessionStorage.setItem('user_lastLogin', res.data.data.loginInfo);
+      document.location.href = '/main/profile';
     })
-    .catch();
+    .catch((err)=>{if(err.response.data.data == 'noID'){
+      alert('Id you typed in is not valid!');
+      setInputID('');
+      setInputPWD('');
+    } else if(err.response.data.data == 'nopassword'){
+      alert('Inccorect passord!');
+      setInputPWD('');
+    }
+  });
   }
 
   return (

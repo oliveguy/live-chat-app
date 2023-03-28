@@ -14,6 +14,17 @@ body {
   color: #fff;
 }
 
+@keyframes turning {
+  0% {
+    background: linear-gradient(45deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  }
+  50% {
+    background: linear-gradient(180deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  }
+  100% {
+    background: linear-gradient(300deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -34,6 +45,7 @@ header h1:hover {
 header p {
   margin: 1rem;
   font-weight: 400;
+  min-width: 160px;
 }
 
 div.home {
@@ -62,6 +74,7 @@ div.home div.cta button {
   background-color: transparent;
   margin: auto 0.5rem;
   font-weight: bolder;
+  min-width: 150px;
 }
 div.home div.cta button:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -199,5 +212,73 @@ div.signup form div.submitCancel button:nth-of-type(2) {
 div.signup form div.submitCancel button:nth-of-type(2):hover {
   background-color: #e06219;
   color: #fff;
+  cursor: pointer;
+}
+
+div.main {
+  display: grid;
+  grid-template-columns: 55px 9fr;
+  background: linear-gradient(45deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+}
+div.main nav.mainNav {
+  height: 100vh;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+div.main nav.mainNav a {
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem 0;
+}
+div.main nav.mainNav a img {
+  width: 40px;
+  height: 40px;
+  filter: opacity(0.5);
+}
+div.main nav.mainNav a img:hover {
+  cursor: pointer;
+  filter: opacity(1);
+  transition: all 0.25s ease-in-out;
+}
+div.main nav.mainNav a img.select {
+  filter: opacity(1);
+  transition: all 0.25s ease-in-out;
+}
+
+div.profile {
+  margin: 2rem;
+}
+div.profile h3 {
+  margin-top: 0;
+  text-decoration: underline;
+}
+div.profile ul {
+  padding: 0;
+}
+div.profile ul li {
+  list-style-type: none;
+  margin: 1rem 0;
+}
+
+div.setting {
+  margin: 2rem;
+}
+div.setting button {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  min-width: 80px;
+  background-color: transparent;
+  font-weight: bolder;
+  font-size: 0.8rem;
+}
+div.setting button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
 }/*# sourceMappingURL=App.css.map */
