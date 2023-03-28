@@ -1,8 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Routes, Route, Link ,useNavigate, Outlet} from 'react-router-dom'
 
 function Signup(){
+  let navigate = useNavigate()
   const handleSubmit = e =>{
     e.preventDefault();
     let loginInfo = dateTime;
@@ -26,37 +28,44 @@ function Signup(){
   const [userEmail, setEmail] = useState('');
 
   return(
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="userID"
-        placeholder='ID'
-        value={userID}
-        onChange={(e)=>setID(e.target.value)}
-      />
-      <input 
-        type="password"
-        name="userPWD"
-        placeholder='Password'
-        value={userPWD}
-        onChange={(e)=>setPWD(e.target.value)}
-      />
-      <input 
-        type="text"
-        name="userName"
-        placeholder='Your Name'
-        value={userName}
-        onChange={(e)=>setUserName(e.target.value)}
-      />
-      <input 
-        type="email"
-        name="userEmail"
-        placeholder='Email'
-        value={userEmail}
-        onChange={(e)=>setEmail(e.target.value)}
+    <div className='signup'>
+      <h2>Sign up</h2>
+      <p>Sign up now for our live chatting app and discover a whole new world of communication that is fast, reliable, and convenient.</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="userID"
+          placeholder='ID'
+          value={userID}
+          onChange={(e)=>setID(e.target.value)}
         />
-      <button type="submit">Submit</button>
-    </form>
+        <input 
+          type="password"
+          name="userPWD"
+          placeholder='Password'
+          value={userPWD}
+          onChange={(e)=>setPWD(e.target.value)}
+        />
+        <input 
+          type="text"
+          name="userName"
+          placeholder='Your Name'
+          value={userName}
+          onChange={(e)=>setUserName(e.target.value)}
+        />
+        <input 
+          type="email"
+          name="userEmail"
+          placeholder='Email'
+          value={userEmail}
+          onChange={(e)=>setEmail(e.target.value)}
+          />
+        <div className='submitCancel'>
+          <button type="submit">Submit</button>
+          <button onClick={(e)=>{e.preventDefault(); navigate(-1)}}>Cancel</button>
+        </div>
+      </form>
+    </div>
   )
 }
 

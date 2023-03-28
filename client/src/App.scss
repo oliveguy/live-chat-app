@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+// INDEX
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Raleway', 'Times', 'sans-serif';
+  font-weight: 500;
+  background: linear-gradient(45deg, rgb(204, 37, 14) 0%,  rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color:#fff;
+}
+header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fff;
+  background-color: rgba(0, 0, 0, .25);
+  h1{
+    font-family: 'Oleo Script',  'Lucida', 'cursive';
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    margin: 1rem;
+    text-align: center;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  p{
+    margin: 1rem;
+    font-weight: 400;
+  }
+}
+
+// HOME
+div.home{
+  max-width: 60ch;
+  margin:0 auto;
+  text-align: center;
+  margin-top: 5rem;
+  h2.homeT{
+    font-family: 'Oleo Script',  'Lucida', 'cursive';
+    font-size: 3rem;
+    margin-bottom: .5rem;
+  }
+  h3{
+    margin:0;
+  }
+  div.cta{
+    margin-top: 2rem;
+    button{
+      border: 1px solid #fff;
+      border-radius: 20px;
+      padding: .5rem 1rem;
+      color: #fff;
+      min-width: 80px;
+      background-color: transparent;
+      margin: auto .5rem;
+      font-weight: bolder;
+      &:hover{
+        background-color: rgba($color: #fff, $alpha: .3);
+        transition: all .25s ease-in-out;
+        cursor: pointer;
+      }
+    }
+  }
+  p.shortP{
+    max-width: 50ch;
+    margin:2rem auto;
+  }
+}
+
+// LOGIN
+div.login{
+  max-width: 40ch;
+  margin:2rem auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  h2{
+    margin-top: 0;
+  }
+  form{
+    display:flex;
+    flex-direction: column;
+    width:25ch;
+    margin:0 auto;
+    input{
+      margin:.5rem 0;
+      padding: .25rem;
+      border-radius: 10px;
+      border:none;
+      text-align: center;
+      background-color: rgba(255, 255, 255, .75);
+    }
+    input[type="submit"]{
+      min-width: 15ch;
+      margin: 0 auto;
+      margin-top: .5rem;
+      background-color: #e06219;
+      color:#fff;
+      font-weight: bolder;
+      border: 1px solid #fff;
+      &:hover{
+        background-color: #fff;
+        color: #e06219;
+        cursor: pointer;
+      }
+    }
+  }
+  p.signup{
+    font-size: .8rem;
+  }
+  button{
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: .25rem .5rem;
+    color: #fff;
+    min-width: 80px;
+    background-color: transparent;
+    margin: auto .5rem;
+    font-weight: bolder;
+    font-size: .8rem;
+    &:hover{
+      background-color: rgba($color: #fff, $alpha: .3);
+      transition: all .25s ease-in-out;
+      cursor: pointer;
+    }
+  }
+}
+//SIGNUP
+div.signup{
+  max-width: 40ch;
+  margin:2rem auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  form{
+    display:flex;
+    flex-direction: column;
+    width:25ch;
+    margin:0 auto;
+    input{
+      margin:.5rem 0;
+      padding: .25rem;
+      border-radius: 10px;
+      border:none;
+      text-align: center;
+      background-color: rgba(255, 255, 255, .75);
+    }
+    input[type="submit"]{
+      min-width: 15ch;
+      margin: 0 auto;
+      margin-top: .5rem;
+      background-color: #e06219;
+      color:#fff;
+      font-weight: bolder;
+      border: 1px solid #fff;
+      &:hover{
+        background-color: #fff;
+        color: #e06219;
+        cursor: pointer;
+      }
+    }
+    div.submitCancel{
+      display:flex;
+      justify-content: space-between;
+      button{
+        width:95%;
+        border: 1px solid #fff;
+        border-radius: 15px;
+        padding: .25rem 0;
+        margin-top: .5rem;
+        font-weight: bolder;
+        transition: all 0.25s ease-in-out;
+        &:nth-of-type(1){
+          margin-right: .25rem;
+          background-color: transparent;
+          color:#fff;
+          &:hover{
+            background-color: #fff;
+            color: #e06219;
+            cursor: pointer;
+          }
+        }
+        &:nth-of-type(2){
+          margin-left: .25rem;
+          background-color: rgba(255, 255, 255, .25);
+          color:#fff;
+          &:hover{
+            background-color: #e06219;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

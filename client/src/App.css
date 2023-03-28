@@ -1,38 +1,203 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", "Times", "sans-serif";
+  font-weight: 500;
+  background: linear-gradient(45deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+header h1 {
+  font-family: "Oleo Script", "Lucida", "cursive";
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  margin: 1rem;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1:hover {
+  cursor: pointer;
+}
+header p {
+  margin: 1rem;
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+div.home {
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 5rem;
+}
+div.home h2.homeT {
+  font-family: "Oleo Script", "Lucida", "cursive";
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+div.home h3 {
+  margin: 0;
+}
+div.home div.cta {
+  margin-top: 2rem;
+}
+div.home div.cta button {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  min-width: 80px;
+  background-color: transparent;
+  margin: auto 0.5rem;
+  font-weight: bolder;
+}
+div.home div.cta button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+div.home p.shortP {
+  max-width: 50ch;
+  margin: 2rem auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.login {
+  max-width: 40ch;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+div.login h2 {
+  margin-top: 0;
+}
+div.login form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 25ch;
+  margin: 0 auto;
+}
+div.login form input {
+  margin: 0.5rem 0;
+  padding: 0.25rem;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+div.login form input[type=submit] {
+  min-width: 15ch;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  background-color: #e06219;
+  color: #fff;
+  font-weight: bolder;
+  border: 1px solid #fff;
+}
+div.login form input[type=submit]:hover {
+  background-color: #fff;
+  color: #e06219;
+  cursor: pointer;
+}
+div.login p.signup {
+  font-size: 0.8rem;
+}
+div.login button {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  min-width: 80px;
+  background-color: transparent;
+  margin: auto 0.5rem;
+  font-weight: bolder;
+  font-size: 0.8rem;
+}
+div.login button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+div.signup {
+  max-width: 40ch;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.signup form {
+  display: flex;
+  flex-direction: column;
+  width: 25ch;
+  margin: 0 auto;
 }
+div.signup form input {
+  margin: 0.5rem 0;
+  padding: 0.25rem;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+div.signup form input[type=submit] {
+  min-width: 15ch;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  background-color: #e06219;
+  color: #fff;
+  font-weight: bolder;
+  border: 1px solid #fff;
+}
+div.signup form input[type=submit]:hover {
+  background-color: #fff;
+  color: #e06219;
+  cursor: pointer;
+}
+div.signup form div.submitCancel {
+  display: flex;
+  justify-content: space-between;
+}
+div.signup form div.submitCancel button {
+  width: 95%;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  padding: 0.25rem 0;
+  margin-top: 0.5rem;
+  font-weight: bolder;
+  transition: all 0.25s ease-in-out;
+}
+div.signup form div.submitCancel button:nth-of-type(1) {
+  margin-right: 0.25rem;
+  background-color: transparent;
+  color: #fff;
+}
+div.signup form div.submitCancel button:nth-of-type(1):hover {
+  background-color: #fff;
+  color: #e06219;
+  cursor: pointer;
+}
+div.signup form div.submitCancel button:nth-of-type(2) {
+  margin-left: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+div.signup form div.submitCancel button:nth-of-type(2):hover {
+  background-color: #e06219;
+  color: #fff;
+  cursor: pointer;
+}/*# sourceMappingURL=App.css.map */

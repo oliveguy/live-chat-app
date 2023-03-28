@@ -1,9 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { Routes, Route, Link ,useNavigate, Outlet} from 'react-router-dom'
 
 function Login(){
+  let navigate = useNavigate()
   let current = new Date();
   let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
   let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
@@ -31,14 +32,17 @@ function Login(){
   }
 
   return (
-    <>
-    <h2>Login</h2>
-    <form action="" onSubmit={loginHandler}>
-      <input type="text" name="userID" value={inputID} onChange={IDHandler} placeholder='userID' required/>
-      <input type="password" name="userPWD" value={inputPWD} onChange={PWDHandler}placeholder='password' required/>
-      <input type="submit" value="LOGIN" />
-    </form>
-    </>
+    <div className='login'>
+      <h2>Log-in</h2>
+      <p>Welcome back!</p>
+        <form action="" onSubmit={loginHandler}>
+          <input type="text" name="userID" value={inputID} onChange={IDHandler} placeholder='user ID' required/>
+          <input type="password" name="userPWD" value={inputPWD} onChange={PWDHandler}placeholder='Password' required/>
+          <input type="submit" value="LOGIN" />
+        </form>
+        <p className='signup'>Don’t you have ID? just sign up here</p>
+        <button onClick={()=>{ navigate('/signup') }}>Signup</button>
+    </div>
   )
 }
 
