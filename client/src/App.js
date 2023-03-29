@@ -8,6 +8,8 @@ import Home from './components/Home';
 import Main from './components/Main';
 import Profile from './components/Profile';
 import Setting from './components/Setting';
+import Userlist from './components/UserList';
+
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -45,7 +47,9 @@ function App() {
         <Route path="/signup" element={<Signup />}/>
         <Route path="/main" element={<Main />} >
           <Route path="profile" element={<Profile userInfo={userInfo}/>} />
-          <Route path="chat" element={<Chat />} />
+          <Route path="userlist" element={<Userlist userInfo={userInfo}/>} >
+            <Route path="chat" element={<Chat userInfo={userInfo}/>} />
+          </Route>
           <Route path="setting" element={<Setting />} />
         </Route>
       </Routes>

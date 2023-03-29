@@ -17,7 +17,7 @@ function Main(){
     <div className='main'>
       <nav className='mainNav'>
         <a onClick={(e)=>{ e.preventDefault(); navigate('/main/profile'); setSelect('');setSelect(0);}}><img src={profile} alt="profile" className={select==0?'select':''}/></a>
-        <a onClick={(e)=>{ e.preventDefault(); navigate('/main/chat'); setSelect('');setSelect(1);}}><img src={talk} alt="talk" className={select==1?'select':''}/></a>
+        <a onClick={(e)=>{ e.preventDefault(); navigate('/main/userlist'); setSelect('');setSelect(1);}}><img src={talk} alt="talk" className={select==1?'select':''}/></a>
         <a onClick={(e)=>{ e.preventDefault(); navigate('/main/setting'); setSelect('');setSelect(2);}}><img src={setting} alt="setting" className={select==2?'select':''}/></a>
       </nav>
       <Outlet></Outlet>

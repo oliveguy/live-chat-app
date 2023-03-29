@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client';
 import axios from 'axios';
 
-function Chat(){
-  useEffect(()=>{
-    const socket = io.connect("http://localhost:8080");
-    console.log(socket) // Connected with WebSocket
+// const socket = io.connect("http://localhost:8080");
+function Chat(props){
+  // useEffect(()=>{
 
-  },[])
-
+  // },[])
   return (
     <div className='chat'>
     <ul>

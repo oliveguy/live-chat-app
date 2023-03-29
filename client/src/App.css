@@ -4,33 +4,25 @@
   box-sizing: border-box;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   font-family: "Raleway", "Times", "sans-serif";
   font-weight: 500;
   background: linear-gradient(45deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
   background-position: 100% 100%;
   background-repeat: no-repeat;
-  height: 100vh;
   color: #fff;
 }
 
-@keyframes turning {
-  0% {
-    background: linear-gradient(45deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
-  }
-  50% {
-    background: linear-gradient(180deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
-  }
-  100% {
-    background: linear-gradient(300deg, rgb(204, 37, 14) 0%, rgb(214, 99, 5) 50%, rgb(100, 30, 2) 100%);
-  }
-}
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 header h1 {
   font-family: "Oleo Script", "Lucida", "cursive";
@@ -224,6 +216,7 @@ div.main {
 }
 div.main nav.mainNav {
   height: 100vh;
+  margin: 0;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -262,6 +255,121 @@ div.profile ul {
 div.profile ul li {
   list-style-type: none;
   margin: 1rem 0;
+}
+
+div.userSpace {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+div.userSpace ul.userlist {
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+div.userSpace ul.userlist li {
+  list-style-type: none;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+div.userSpace ul.userlist li span {
+  display: block;
+}
+div.userSpace ul.userlist li span.name {
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+div.userSpace ul.userlist li span.email {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+div.chatWindowWrapper {
+  margin: 5rem;
+}
+div.chatWindowWrapper div.chatWindow {
+  height: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+div.chatWindowWrapper div.chatWindow ul {
+  padding: 0 1rem;
+}
+div.chatWindowWrapper div.chatWindow ul li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.5rem 0;
+  color: #fff;
+}
+div.chatWindowWrapper div.chatWindow ul li div.nameTime {
+  min-width: 150px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #000;
+  margin-bottom: 0.25rem;
+}
+div.chatWindowWrapper div.chatWindow ul li div.nameTime span.chatName {
+  color: #000;
+  font-weight: 600;
+  font-style: italic;
+}
+div.chatWindowWrapper div.chatWindow ul li.you {
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  background-color: rgba(224, 92, 52, 0.75);
+}
+div.chatWindowWrapper div.chatWindow ul li.other {
+  -webkit-margin-start: inherit;
+          margin-inline-start: inherit;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+div.chatWindowWrapper div.chatWindow div.field {
+  margin: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+}
+div.chatWindowWrapper div.chatWindow div.field input {
+  width: 100%;
+  margin-right: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+div.chatWindowWrapper div.chatWindow div.field input:hover {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+div.chatWindowWrapper div.chatWindow div.field button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 1rem auto;
+  align-items: center;
+  color: #fff;
+}
+
+.msgContainer {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.msgContainer::-webkit-scrollbar {
+  display: none;
 }
 
 div.setting {

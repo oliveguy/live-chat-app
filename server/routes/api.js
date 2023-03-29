@@ -4,6 +4,7 @@ const User = require("../models/User");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 app.use(express.json());
 
@@ -62,5 +63,12 @@ router.post("/login", async(req,res)=>{
 // bcrypt hash coparison
 // https://velog.io/@yogjin/nodeJS-bcrypt-hashed-password%EC%99%80-plain-password-%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B9%84%EA%B5%90%ED%95%A0%EA%B9%8C
 
+
+router.get("/userlist", async(req,res)=>{
+  if(process.env.SECRET == req.secret){
+    let DB_data = await User.find()
+    res.send(DB_data);;
+  }
+})
 
 module.exports = router;

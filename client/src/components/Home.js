@@ -20,6 +20,7 @@ function Home(){
       </div>
     }
     <p className='shortP'>Experience the power of real-time communication with our live chatting app! Connect with friends, family, and new acquaintances from around the world with ease. Join our community and start chatting today!</p>
+
   </div>
   )
 }

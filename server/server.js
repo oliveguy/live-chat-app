@@ -16,10 +16,9 @@ const http = require('http').createServer(app);
 const io = require("socket.io")(http,{
   cors: {
     origin:'http://localhost:3000',
-    credential:true
+    methods:["GET","POST"]
   }
 });
-// const io = new Server(http);
 
 app.use(cookieParser(process.env.SECRET));
 app.use(session({
@@ -55,16 +54,18 @@ app.get("/",(req,res)=>{
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
 })
 
-/////CHAT
+///// CHAT START
 io.on('connection',(socket)=>{
-  console.log('A user connected')
+  console.log(`Connected ID=${socket.id}`)
 
   socket.on('userMSG',(data)=>{
-    console.log(`server recieved: ${data}`)
     io.emit('broadcast',data)
   })
+  socket.on('disconnect',()=>{
+    console.log(`Disconnect ID=${socket.id}`)
+  })
 })
-
+///////// CHAT END
 
 http.listen(process.env.PORT, function() {
     console.log(`listening on ${process.env.PORT}`)
@@ -72,3 +73,28 @@ http.listen(process.env.PORT, function() {
 
 
 // concurrently
+
+
+// const connectedUsers = {};
+// io.on('connection', (socket) => {
+//   console.log(`User connected: ${socket.id}`);
+
+//   // Handle private chat requests
+//   socket.on('private-chat-request', (userId) => {
+//     // Generate a unique room ID
+//     const roomId = `${socket.id}-${userId}`;
+
+//     // Join the chat room
+//     socket.join(roomId);
+//     connectedUsers[socket.id] = roomId;
+
+//     // Notify the other user that they have been invited to a private chat
+//     socket.to(userId).emit('private-chat-invitation', {
+//       roomId: roomId,
+//       fromUser: socket.id,
+//     });
+//   });  
+//   socket.on("disconnect",()=>{
+//     console.log(`User Disconnected: ${socket.id}`)
+//   })
+// })
