@@ -11,6 +11,11 @@ function Signup(){
     axios.post('/api/register',{userID, userPWD, userName, userEmail, loginInfo})
     .then(res=>{
       alert(`Thank you ${userName} for sigining up!`)
+      sessionStorage.setItem('user_id', userID);
+      sessionStorage.setItem('user_name', userName);
+      sessionStorage.setItem('user_email', userEmail);
+      sessionStorage.setItem('user_lastLogin', loginInfo);
+      navigate('/main/profile')
     })
     .catch(function (error) {
       console.log(error);

@@ -13,14 +13,12 @@ router.post(
   async (req, res) => {
     const { userID, userPWD, userName, userEmail, loginInfo} = req.body;
     try {
-      // userID compare
       let user = await User.findOne({ userID });
 			if (user) {
         return res
           .status(400)
           .json({ errors: [{ msg: "User already exists" }] });
       }
-      // assign fields on user
       user = new User({
         userID,
         userPWD,
@@ -30,7 +28,7 @@ router.post(
       });
       
       user.userPWD = await bcrypt.hashSync(userPWD, 10);
-      await user.save(); // save user in DB
+      await user.save();
 
       res.send("Success");
     } catch (error) {
@@ -45,18 +43,17 @@ router.post("/login", async(req,res)=>{
   let inputPWD = req.body.inputPWD;
   let updateLogin = req.body.dateTime;
   const user = await User.findOne({userID:inputID});
-  // encryted pwd comparision
   
-  if(!user){ // No User ID
+  if(!user){
     return res.status(401).json({message:'user not found',data:'noID'});
   }
   let compare = bcrypt.compareSync(inputPWD, user.userPWD)
-  if(compare){ // Both ID and PWD Ok ----------------
+  if(compare){
     res.status(200).json({message:'found and pwd correct', data:user});
     user.loginInfo = updateLogin;
     await user.save();
   }
-  if(user && compare == false){ // ID okay but PWD incorrect
+  if(user && compare == false){
     return res.status(401).json({message:'Your password is incorrect',data:'nopassword'});
   }
 })
