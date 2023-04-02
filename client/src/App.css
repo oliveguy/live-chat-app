@@ -6,6 +6,7 @@
 
 html {
   height: -webkit-fill-available;
+  height: 100vh;
 }
 
 body {

@@ -1,7 +1,7 @@
 #SERVER
 server/node_modules
 .env
-
+app.yaml
 #CLIENT
 client/node_modules
 # dependencies

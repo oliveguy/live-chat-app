@@ -8,9 +8,9 @@ function Profile(props){
     <div className='profile'>
       <h3>User's Information</h3>
       <ul>
-        <li>ID: <strong>{props.userInfo[0]}</strong></li>
-        <li>Name: <strong>{props.userInfo[1]}</strong></li>
-        <li>Email: <strong>{props.userInfo[2]}</strong></li>
+        <li>ID: <strong>{user.user_id}</strong></li>
+        <li>Name: <strong>{user.user_name}</strong></li>
+        <li>Email: <strong>{user.user_email}</strong></li>
         <li>Last Login: <strong>{user.user_lastLogin}</strong></li>
       </ul>
     </div>

@@ -3,10 +3,9 @@ import axios from 'axios';
 import { useNavigate, Outlet } from 'react-router-dom'
 import ScrollToBottmom from 'react-scroll-to-bottom';
 import { io } from 'socket.io-client';
-const socket = io("http://localhost:8080");
+const socket = io("https://live-chat-382204.wl.r.appspot.com");
 
 function Userlist(props){
-  // USER LISTING
   const [userlist, setUserList] = useState([])
   useEffect(()=>{
       axios.get('/api/userlist')
@@ -14,7 +13,7 @@ function Userlist(props){
         setUserList(res.data)
       }))
   },[])
-  // Sending msg
+
   const [currentMsg, setCurrentMsg] = useState('');
   const [msgList, setMsgList] = useState([]);
   const sendMsg = async()=>{

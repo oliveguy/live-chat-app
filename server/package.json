@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Sunghyun (Collin)",
   "license": "ISC",
@@ -17,8 +17,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "mongodb": "^5.1.0",
     "mongoose": "^7.0.1",
     "nodemon": "^2.0.22",
     "socket.io": "^4.6.1"
-  }
+  },
+    "engine":{
+      "node": "18.x"
+    }
+  
 }

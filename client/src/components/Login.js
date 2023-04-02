@@ -28,7 +28,7 @@ function Login(){
       sessionStorage.setItem('user_name', res.data.data.userName);
       sessionStorage.setItem('user_email', res.data.data.userEmail);
       sessionStorage.setItem('user_lastLogin', res.data.data.loginInfo);
-      document.location.href = '/main/profile';
+      navigate('/main/profile');
     })
     .catch((err)=>{if(err.response.data.data == 'noID'){
       alert('Id you typed in is not valid!');
