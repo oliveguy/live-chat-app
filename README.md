@@ -11,13 +11,13 @@
 -	Build interactivity parts using combination of React.js and APIs
 
 ## Built with
-<div style="display:flex;">
+
   <img src="https://img.shields.io/badge/Express-blue?style=for-the-badge&logo=Express&logoColor=green"/>
   <img src="https://img.shields.io/badge/NodeJS-white?style=for-the-badge&logo=Node.js&logoColor=green"/>
   <img src="https://img.shields.io/badge/MongoDB-blue?style=for-the-badge&logo=MongoDB&logoColor=green"/>
   <img src="https://img.shields.io/badge/React-green?style=for-the-badge&logo=React&logoColor=blue"/>
   <img src="https://img.shields.io/badge/Scss-green?style=for-the-badge&logo=Sass&logoColor=CC6699"/>
-</div>
+
 
 ## What I’ve Learned
 -	How to use Socket.io for real time communication
