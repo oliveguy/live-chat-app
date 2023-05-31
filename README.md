@@ -26,6 +26,12 @@
 -	React-router-dom (Routing in React.js, useNavigate, and Outlet)
 -	How to use session in React.js
 
+## Screenshot
+<div style="display:flex;">
+  ![TalkieTalk-1](https://github.com/oliveguy/live-chat-app/assets/103153516/94692856-e2fd-4af3-8d3c-80cea9e6d5f6)
+  ![TalkieTalk-chat](https://github.com/oliveguy/live-chat-app/assets/103153516/fab4a58c-966d-4e72-b8ed-9c7bc50e7bf1)
+  ![TalkieTalk-signup](https://github.com/oliveguy/live-chat-app/assets/103153516/81043bc8-9563-42e7-9853-d052c9a06202)
+</div>
 ## Continued Development
 -	Add/build one on one chatting function using advanced web socket knowledge
 -	Debugging work (Viewing user information)
