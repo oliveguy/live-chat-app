@@ -1,5 +1,5 @@
 ![TalkieTalk](https://github.com/oliveguy/live-chat-app/assets/103153516/6082c704-9c5e-44d7-9699-3cb0779b951d)
-TalkieTalk - Real time chatting app with sign up and log in functionalities
+- TalkieTalk - Real time chatting app with sign up and log in functionalities
 
 ## Challenge
 - Build APIs and front-end for real time chatting function using MERN stack
