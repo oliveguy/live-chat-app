@@ -22,6 +22,7 @@
 ## What I’ve Learned
 -	How to use Socket.io for real time communication
 -	CORS (Cross-Origin Resource Sharing) and proxy setting in React.js and Express server
+-	How to build RESTful APIs using Express router
 -	How to operate database in Mongoose
 -	React-router-dom (Routing in React.js, useNavigate, and Outlet)
 -	How to use session in React.js
